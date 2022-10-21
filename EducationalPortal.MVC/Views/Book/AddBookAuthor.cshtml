@@ -1,0 +1,37 @@
+﻿@model EducationalPortal.MVC.Models.BookAuthorModel
+
+@{
+    ViewData["Title"] = "AddBookAuthor";
+}
+
+<form asp-action="AddBookAuthor" asp-controller="Book" asp-route-id="@Model.BookId">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="number" hidden asp-for="BookId" />
+    <div class="form-group">
+        <div class="md-form mb-5">
+            <input asp-for="BookName" id="form1" class="form-control">
+            <label asp-for="BookName" for="form1" class=""></label>
+            <span asp-validation-for="BookName" class="field-validation-error badge badge-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <select asp-for="AuthorId" class="browser-default custom-select mb-4" asp-items="@Model.AuthorsList" required>
+            <option value="" disabled="" selected="">Choose cauthor for book</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+<div>
+    <a class="btn btn-primary" asp-action="AddAuthor" asp-controller="Author">Create new author</a>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

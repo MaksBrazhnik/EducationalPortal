@@ -1,0 +1,67 @@
+﻿@model EducationalPortal.Domain.DTOs.BookListDTO
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Books</h1>
+
+<form asp-controller="Book" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <tr><th>Name</th><th>Authors</th><th>Page count</th><th>Publication Date</th><th>Format</th></tr>
+    @foreach (var item in Model.Books)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Author</td>
+            <td>@item.PageCount</td>
+            <td>@item.PublicationDate</td>
+            <td>@item.Format</td>
+            <td>
+                <a class="btn btn-primary" asp-action="UpdateBook" asp-controller="Book" asp-route-id="@item.Id">Change</a>
+            </td>
+            <td>
+                <form asp-controller="Book" asp-action="DeleteBook" method="post" asp-route-id="@item.Id">
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
+<div class="row">
+    <div class="col-10">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn  btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn btn-outline-dark">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>
+<a class="btn btn-primary" asp-action="AddBook">Create book</a>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

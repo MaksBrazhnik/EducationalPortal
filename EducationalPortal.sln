@@ -1,0 +1,81 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CE651996-35B4-43DD-8DAE-87CCD885114E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{67CD0911-8CA0-4CF5-923A-040BCA198D72}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8A3B330F-BDC4-49E6-B8C6-82BFF1D57460}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.BLL", "EducationalPortal.BLL\EducationalPortal.BLL.csproj", "{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.DAL", "EducationalPortal.DAL\EducationalPortal.DAL.csproj", "{28BC418E-15F5-43E5-972E-67DC0633571C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.Domain", "EducationalPortal.Domain\EducationalPortal.Domain.csproj", "{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{3EF0584B-7333-41AE-9080-D09070C1F394}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.UI", "EducationalPortal.UI\EducationalPortal.UI.csproj", "{682A5E48-4388-43DA-BD9C-9D74A33B0DE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.Validation", "EducationalPortal.Validation\EducationalPortal.Validation.csproj", "{508A4FFC-6901-4C9A-B0F8-06974D7ECA20}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EducationalPortal.MVC", "EducationalPortal.MVC\EducationalPortal.MVC.csproj", "{15600583-0F6D-4844-8CCD-899A25E395BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EducationalPortal.Utils", "EducationalPortal.Utils\EducationalPortal.Utils.csproj", "{9701BC4F-4DC3-44C8-9645-597D5A403043}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BC418E-15F5-43E5-972E-67DC0633571C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BC418E-15F5-43E5-972E-67DC0633571C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BC418E-15F5-43E5-972E-67DC0633571C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BC418E-15F5-43E5-972E-67DC0633571C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579}.Release|Any CPU.Build.0 = Release|Any CPU
+		{682A5E48-4388-43DA-BD9C-9D74A33B0DE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682A5E48-4388-43DA-BD9C-9D74A33B0DE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682A5E48-4388-43DA-BD9C-9D74A33B0DE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682A5E48-4388-43DA-BD9C-9D74A33B0DE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{508A4FFC-6901-4C9A-B0F8-06974D7ECA20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{508A4FFC-6901-4C9A-B0F8-06974D7ECA20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{508A4FFC-6901-4C9A-B0F8-06974D7ECA20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{508A4FFC-6901-4C9A-B0F8-06974D7ECA20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15600583-0F6D-4844-8CCD-899A25E395BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15600583-0F6D-4844-8CCD-899A25E395BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15600583-0F6D-4844-8CCD-899A25E395BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15600583-0F6D-4844-8CCD-899A25E395BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9701BC4F-4DC3-44C8-9645-597D5A403043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9701BC4F-4DC3-44C8-9645-597D5A403043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9701BC4F-4DC3-44C8-9645-597D5A403043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9701BC4F-4DC3-44C8-9645-597D5A403043}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1FB0161F-2AAF-4C5C-91C2-F90E3D84D5F8} = {CE651996-35B4-43DD-8DAE-87CCD885114E}
+		{28BC418E-15F5-43E5-972E-67DC0633571C} = {67CD0911-8CA0-4CF5-923A-040BCA198D72}
+		{BAEBA9FB-080C-40EC-BE31-A7B8BE3CE579} = {CE651996-35B4-43DD-8DAE-87CCD885114E}
+		{682A5E48-4388-43DA-BD9C-9D74A33B0DE7} = {3EF0584B-7333-41AE-9080-D09070C1F394}
+		{508A4FFC-6901-4C9A-B0F8-06974D7ECA20} = {67CD0911-8CA0-4CF5-923A-040BCA198D72}
+		{15600583-0F6D-4844-8CCD-899A25E395BD} = {3EF0584B-7333-41AE-9080-D09070C1F394}
+		{9701BC4F-4DC3-44C8-9645-597D5A403043} = {67CD0911-8CA0-4CF5-923A-040BCA198D72}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A1A473AF-502F-4FE4-919A-5D2DF6DFB292}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,43 @@
+﻿@model EducationalPortal.Domain.DTOs.CourseDTO
+
+@{
+    ViewData["Title"] = "UpdateCourse";
+}
+
+<h1>Update Course</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UpdateCourse" asp-controller="Course" asp-route-id="@Model.Id">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type = "hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+</br>
+<td class="form-group">
+    <a class="btn btn-primary" asp-action="AddCourseSkill" asp-controller="Course" asp-route-id="@Model.Id">Add skill</a>
+</td>
+
+<td class="form-group">
+    <a class="btn btn-primary" asp-action="AddCourseMaterial" asp-controller="Course" asp-route-id="@Model.Id">Add material</a>
+</td>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

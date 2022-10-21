@@ -1,0 +1,31 @@
+﻿@model EducationalPortal.MVC.Models.CourseSkillModel
+
+@{
+    ViewData["Title"] = "AddCourseSkill";
+}
+
+<form asp-action="AddCourseSkill" asp-controller="Course" asp-route-id="@Model.CourseId">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="number" hidden asp-for="CourseId" />
+    <div class="form-group">
+        <div class="md-form mb-5">
+            <input asp-for="CourseName" id="form1" class="form-control">
+            <label asp-for="CourseName" for="form1" class=""></label>
+            <span asp-validation-for="CourseName" class="field-validation-error badge badge-danger"></span>
+        </div>
+    </div>
+    <div class="form-group">
+        <select asp-for="SkillId" class="browser-default custom-select mb-4" asp-items="@Model.SkillList" required>
+            <option value="" disabled="" selected="">Choose skill to add</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

@@ -1,0 +1,46 @@
+﻿@model EducationalPortal.Domain.DTOs.UserCourseListDTO
+
+@{
+    ViewData["Title"] = "ShowCourses";
+}
+
+<table class="table">
+    <tr><th>Name</th><th>Description</th><th>Complete</th><th>Materials</th><th></th><th></th><th></th><th></th></tr>
+    @foreach (var item in Model.UserCourses)
+    {
+        <tr>
+            <td>@item.Course.Name</td>
+            <td>@item.Course.Description</td>
+            <td>@item.PassPercent%</td>
+            <td>
+                <form asp-controller="Account" asp-action="ShowMaterials" method="get" asp-route-id="@item.CourseId">
+                    <input type="submit" class="btn btn-primary" value="Learn" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div class="row">
+    <div class="col-10">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="ShowCourses"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn  btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="ShowCourses"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn btn-outline-dark">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>

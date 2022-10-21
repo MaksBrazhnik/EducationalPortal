@@ -1,0 +1,65 @@
+﻿@model EducationalPortal.Domain.DTOs.ArticleListDTO
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Articles</h1>
+
+<form asp-controller="Article" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <tr><th>Name</th><th>Resource</th><th>Publication Date</th><th></th><th></th></tr>
+    @foreach (var item in Model.Articles)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Resource</td>
+            <td>@item.PublicationDate</td>
+            <td>
+                <a class="btn btn-primary" asp-action="UpdateArticle" asp-controller="Article" asp-route-id="@item.Id" class="btn btn-primary">Change</a>
+            </td>
+            <td>
+                <form asp-controller="Article" asp-action="DeleteArticle" method="post" asp-route-id="@item.Id">
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div class="row">
+    <div class="col-10">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn  btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn btn-outline-dark">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>
+
+<a class="btn btn-primary" asp-action="AddArticle">Create article</a>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

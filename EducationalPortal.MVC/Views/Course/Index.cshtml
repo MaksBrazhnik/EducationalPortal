@@ -1,0 +1,71 @@
+﻿@model EducationalPortal.Domain.DTOs.CourseListDTO
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Courses</h1>
+
+<form asp-controller="Course" asp-action="Index">
+    <p>
+        Title: <input type="text" name="SearchString" asp-for="SearchName" required="false" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <tr><th>Name</th><th>Description</th><th>Materials</th><th>Skills</th><th></th></tr>
+    @foreach (var item in Model.Courses)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Description</td>
+            <td>@item.CourseMaterials</td>
+            <td>@item.CourseSkills</td>
+            <td>
+                <a class="btn btn-primary" asp-action="UpdateCourse" asp-controller="Course" asp-route-id="@item.Id">Change</a>
+            </td>            
+            <td>
+                <form asp-controller="Course" asp-action="DeleteCourse" method="post" asp-route-id="@item.Id">
+                    <input type="submit" class="btn btn-primary" value="Delete" />
+                </form>
+            </td>
+            <td>
+                <form asp-controller="Course" asp-action="AddCourseToUser" method="post" asp-route-id="@item.Id">
+                    <input type="submit" class="btn btn-primary" value="Subscribe" />
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+<div class="row">
+    <div class="col-10">
+        @if (Model.PageViewModel.HasPreviousPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber - 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn  btn-outline-dark">
+                <i class="glyphicon glyphicon-chevron-left"></i>
+                Previous
+            </a>
+        }
+        @if (Model.PageViewModel.HasNextPage)
+        {
+            <a asp-action="Index"
+           asp-route-page="@(Model.PageViewModel.PageNumber + 1)"
+           asp-route-sortorder="@(Model.SortViewModel.Current)"
+           class="btn btn-outline-dark">
+                Next
+                <i class="glyphicon glyphicon-chevron-right"></i>
+            </a>
+        }
+    </div>
+</div>
+<a class="btn btn-primary" asp-action="AddCourse">Create course</a>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
+
